@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - spark-notebook-imagestream.yaml
 - nbviewer-imagestream.yaml
+- beakerx-notebook.yaml
 
 commonLabels:
   opendatahub.io/component: "true"
