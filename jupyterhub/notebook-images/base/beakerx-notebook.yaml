@@ -1,0 +1,20 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true"
+  annotations:
+    opendatahub.io/notebook-image-name: "BeakerX Test Image"
+  name: beakerx-notebook
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - annotations:
+      openshift.io/imported-from: quay.io/repository/odh-jupyterhub/s2i-beakerx-minimal-notebook
+    from:
+      kind: DockerImage
+      name: quay.io/odh-jupyterhub/s2i-beakerx-minimal-notebook:latest
+    name: "latest"
+    referencePolicy:
+      type: Source
